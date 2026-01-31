@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\BookingController; // <--- NEW: Added BookingController
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController; // Add this to top!
+use App\Http\Controllers\ServiceController; // Add to top!
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,6 +44,16 @@ Route::middleware('auth')->group(function () {
 
     // --- FEATURE 3: SERVICE HISTORY (NEW) ---
     Route::get('/history', [BookingController::class, 'index'])->name('bookings.index');
+
+    // --- ADMIN PANEL ROUTES ---
+    // Note: In a real app, we would use 'middleware' => 'admin' here.
+    Route::get('/admin/bookings', [AdminController::class, 'index'])->name('admin.bookings');
+    Route::patch('/admin/bookings/{id}', [AdminController::class, 'update'])->name('admin.update');
+
+    // --- FEATURE 5: SERVICE MANAGEMENT ---
+    Route::get('/admin/services', [ServiceController::class, 'index'])->name('services.index');
+    Route::post('/admin/services', [ServiceController::class, 'store'])->name('services.store');
+    Route::delete('/admin/services/{id}', [ServiceController::class, 'destroy'])->name('services.destroy');
 });
 
 // Load Auth Routes
