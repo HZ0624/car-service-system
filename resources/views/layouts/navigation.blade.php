@@ -24,6 +24,10 @@
                         <x-nav-link :href="route('admin.services.index')" :active="request()->routeIs('admin.services.*')" class="text-base font-medium">
                             {{ __('Manage Services') }}
                         </x-nav-link>
+                        <!-- NEW: Manage Customers Link for Admin -->
+                        <x-nav-link :href="route('admin.customers.index')" :active="request()->routeIs('admin.customers.*')" class="text-base font-medium">
+                            {{ __('Manage Customers') }}
+                        </x-nav-link>
                         
                     <!-- MECHANIC LINKS (Role 3) -->
                     @elseif(Auth::user()->role == 3)
@@ -42,7 +46,6 @@
                         <x-nav-link :href="route('vehicles.create')" :active="request()->routeIs('vehicles.*')" class="text-base font-medium">
                             {{ __('My Vehicles') }}
                         </x-nav-link>
-                        
                         <x-nav-link :href="route('bookings.index')" :active="request()->routeIs('bookings.*')" class="text-base font-medium">
                             {{ __('My Vehicle Status') }}
                         </x-nav-link>
@@ -105,6 +108,11 @@
                 <x-responsive-nav-link :href="route('admin.services.index')" :active="request()->routeIs('admin.services.*')">
                     {{ __('Manage Services') }}
                 </x-responsive-nav-link>
+                <!-- NEW: Manage Customers Link for Admin (Mobile) -->
+                <x-responsive-nav-link :href="route('admin.customers.index')" :active="request()->routeIs('admin.customers.*')">
+                    {{ __('Manage Customers') }}
+                </x-responsive-nav-link>
+                
             @elseif(Auth::user()->role == 3)
                 <x-responsive-nav-link :href="route('mechanic.dashboard')" :active="request()->routeIs('mechanic.dashboard')">
                     {{ __('Manage Repairs') }}
@@ -112,6 +120,7 @@
                 <x-responsive-nav-link :href="route('mechanic.history')" :active="request()->routeIs('mechanic.history')">
                     {{ __('Service History') }}
                 </x-responsive-nav-link>
+                
             @else
                 <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                     {{ __('Dashboard') }}
@@ -123,7 +132,6 @@
                     {{ __('My Vehicle Status') }}
                 </x-responsive-nav-link>
             @endif
-
         </div>
 
         <!-- Responsive Settings Options -->

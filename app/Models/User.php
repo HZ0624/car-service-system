@@ -9,23 +9,22 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    // I removed "HasApiTokens" from this line so it won't crash anymore!
     use HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
      */
     protected $fillable = [
         'name',
         'email',
         'password',
+        'role',
+        'phone_number', // Our newly added column
     ];
 
     /**
      * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
      */
     protected $hidden = [
         'password',
@@ -33,29 +32,20 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
+     * The attributes that should be cast.
      */
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
-    }
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
+    ];
 
-    /**
-     * Relationship: A User can have many Vehicles
-     */
+    // Relationship: A user can have many vehicles
     public function vehicles()
     {
         return $this->hasMany(Vehicle::class);
     }
 
-    /**
-     * Relationship: A User can have many Bookings
-     */
+    // Relationship: A user can have many bookings
     public function bookings()
     {
         return $this->hasMany(Booking::class);

@@ -15,7 +15,7 @@
 <body class="antialiased bg-gray-50 text-gray-900 font-sans selection:bg-blue-500 selection:text-white">
     
     <!-- Navigation Bar -->
-    <nav class="bg-white shadow-sm absolute w-full z-10 top-0">
+    <nav class="bg-white shadow-sm absolute w-full z-50 top-0">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20">
                 <div class="flex items-center">
@@ -44,37 +44,149 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <div class="relative bg-blue-900 pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-        <!-- Background Pattern/Image Placeholder -->
-        <div class="absolute inset-0 opacity-20">
-            <img src="https://images.unsplash.com/photo-1613214149922-f1809c99b414?q=80&w=2070&auto=format&fit=crop" alt="Car Garage" class="w-full h-full object-cover" />
-        </div>
-        <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-transparent"></div>
+    <!-- Professional 5-Image EDGE-TO-EDGE Hero Slideshow -->
+    <div class="relative w-full h-[70vh] md:h-[85vh] min-h-[600px] overflow-hidden shadow-xl group bg-gray-900 mt-20">
         
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
-            <h1 class="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl">
-                <span class="block">Premium Car Service</span>
-                <span class="block text-blue-400">At Your Fingertips</span>
-            </h1>
-            <p class="mt-3 text-base text-gray-300 sm:mt-5 sm:text-lg sm:max-w-xl md:text-xl">
-                Book your next vehicle maintenance, repair, or inspection online with ease. Trusted mechanics, transparent pricing, and excellent customer service.
-            </p>
-            <div class="mt-8 sm:flex">
-                <div class="rounded-md shadow">
-                    @if (Route::has('login'))
-                        @auth
-                            <a href="{{ url('/dashboard') }}" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-blue-900 bg-white hover:bg-gray-100 md:py-4 md:text-lg md:px-10 transition">
-                                Go to Dashboard
-                            </a>
-                        @else
-                            <a href="{{ route('register') }}" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-blue-900 bg-white hover:bg-gray-100 md:py-4 md:text-lg md:px-10 transition">
-                                Book Now
-                            </a>
-                        @endauth
-                    @endif
+        <!-- Slide 1: Premium Car -->
+        <div class="welcome-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100 z-10">
+            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2070&auto=format&fit=crop" class="object-cover w-full h-full opacity-50" alt="Premium Car Care">
+            <div class="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/40 to-transparent flex items-center">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-left">
+                    <div class="max-w-2xl">
+                        <span class="text-blue-400 font-bold tracking-wider uppercase text-sm mb-2 block">Premium AutoCare</span>
+                        <h2 class="text-5xl md:text-6xl lg:text-7xl font-black mb-4 tracking-tight leading-tight text-white">
+                            Premium Service <br><span class="text-blue-500">At Your Fingertips</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-lg leading-relaxed">
+                            Book your next vehicle maintenance, repair, or inspection online with ease. Trusted mechanics and transparent pricing.
+                        </p>
+                        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                            @auth
+                                <a href="{{ url('/dashboard') }}" class="text-center bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-10 rounded-full transition shadow-lg text-lg">Go to Dashboard</a>
+                            @else
+                                <a href="{{ route('register') }}" class="text-center bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-10 rounded-full transition shadow-lg text-lg">Book an Appointment</a>
+                            @endauth
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
+
+        <!-- Slide 2: Mechanic Working -->
+        <div class="welcome-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 z-0">
+            <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=2070&auto=format&fit=crop" class="object-cover w-full h-full opacity-50" alt="Expert Mechanics">
+            <div class="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/40 to-transparent flex items-center">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-left">
+                    <div class="max-w-2xl">
+                        <span class="text-blue-400 font-bold tracking-wider uppercase text-sm mb-2 block">Trusted Professionals</span>
+                        <h2 class="text-5xl md:text-6xl lg:text-7xl font-black mb-4 tracking-tight leading-tight text-white">
+                            Expert Mechanics <br><span class="text-blue-500">You Can Trust</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-lg leading-relaxed">
+                            Our certified technicians treat every car like it's their own, ensuring absolute safety and peak performance on every drive.
+                        </p>
+                        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                            @auth
+                                <a href="{{ url('/dashboard') }}" class="text-center bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-10 rounded-full transition shadow-lg text-lg">Go to Dashboard</a>
+                            @else
+                                <a href="{{ route('register') }}" class="text-center bg-white text-blue-900 hover:bg-gray-100 font-bold py-4 px-10 rounded-full transition shadow-lg text-lg">Get Started Today</a>
+                            @endauth
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Clean Detailing/Bodywork -->
+        <div class="welcome-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 z-0">
+            <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?q=80&w=2070&auto=format&fit=crop" class="object-cover w-full h-full opacity-50" alt="Body and Paint">
+            <div class="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/40 to-transparent flex items-center">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-left">
+                    <div class="max-w-2xl">
+                        <span class="text-blue-400 font-bold tracking-wider uppercase text-sm mb-2 block">Detailing & Polish</span>
+                        <h2 class="text-5xl md:text-6xl lg:text-7xl font-black mb-4 tracking-tight leading-tight text-white">
+                            Restore The <br><span class="text-blue-500">Showroom Shine</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-lg leading-relaxed">
+                            From minor scratch removals to full premium detailing, we restore your vehicle's aesthetic perfection inside and out.
+                        </p>
+                        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                            @auth
+                                <a href="{{ url('/dashboard') }}" class="text-center bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-10 rounded-full transition shadow-lg text-lg">Go to Dashboard</a>
+                            @else
+                                <a href="{{ route('register') }}" class="text-center bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-10 rounded-full transition shadow-lg text-lg">Book Detailing</a>
+                            @endauth
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Wheel and Brakes -->
+        <div class="welcome-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 z-0">
+            <img src="https://images.unsplash.com/photo-1580274455191-1c62238fa333?q=80&w=2070&auto=format&fit=crop" class="object-cover w-full h-full opacity-50" alt="Genuine Parts">
+            <div class="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/40 to-transparent flex items-center">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-left">
+                    <div class="max-w-2xl">
+                        <span class="text-blue-400 font-bold tracking-wider uppercase text-sm mb-2 block">Quality Guaranteed</span>
+                        <h2 class="text-5xl md:text-6xl lg:text-7xl font-black mb-4 tracking-tight leading-tight text-white">
+                            Genuine Parts <br><span class="text-blue-500">Last Longer</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-lg leading-relaxed">
+                            We only use OEM and premium aftermarket components to ensure maximum safety and reliability on the road.
+                        </p>
+                        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                            @auth
+                                <a href="{{ url('/dashboard') }}" class="text-center bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-10 rounded-full transition shadow-lg text-lg">Go to Dashboard</a>
+                            @else
+                                <a href="{{ route('register') }}" class="text-center bg-white text-blue-900 hover:bg-gray-100 font-bold py-4 px-10 rounded-full transition shadow-lg text-lg">Register Now</a>
+                            @endauth
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Professional Workshop -->
+        <div class="welcome-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 z-0">
+            <img src="https://images.unsplash.com/photo-1599256621730-535171e28e50?q=80&w=2070&auto=format&fit=crop" class="object-cover w-full h-full opacity-50" alt="Transparent Service">
+            <div class="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/40 to-transparent flex items-center">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-left">
+                    <div class="max-w-2xl">
+                        <span class="text-blue-400 font-bold tracking-wider uppercase text-sm mb-2 block">100% Transparent</span>
+                        <h2 class="text-5xl md:text-6xl lg:text-7xl font-black mb-4 tracking-tight leading-tight text-white">
+                            Track Every <br><span class="text-blue-500">Single Repair</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-lg leading-relaxed">
+                            Stay updated with live status changes and read detailed mechanic findings directly from your personal dashboard.
+                        </p>
+                        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                            @auth
+                                <a href="{{ url('/dashboard') }}" class="text-center bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-10 rounded-full transition shadow-lg text-lg">Go to Dashboard</a>
+                            @else
+                                <a href="{{ route('register') }}" class="text-center bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-10 rounded-full transition shadow-lg text-lg">Experience It Today</a>
+                            @endauth
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide Navigation Arrows -->
+        <button id="welcome-prev-slide" class="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/30 text-white p-3 rounded-full backdrop-blur-sm transition opacity-0 group-hover:opacity-100">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+        </button>
+        <button id="welcome-next-slide" class="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/30 text-white p-3 rounded-full backdrop-blur-sm transition opacity-0 group-hover:opacity-100">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+        </button>
+
+        <!-- Slide Indicators (Dots) -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex space-x-3">
+            <button class="welcome-dot w-3 h-3 rounded-full bg-white transition-all"></button>
+            <button class="welcome-dot w-3 h-3 rounded-full bg-white/40 hover:bg-white/70 transition-all"></button>
+            <button class="welcome-dot w-3 h-3 rounded-full bg-white/40 hover:bg-white/70 transition-all"></button>
+            <button class="welcome-dot w-3 h-3 rounded-full bg-white/40 hover:bg-white/70 transition-all"></button>
+            <button class="welcome-dot w-3 h-3 rounded-full bg-white/40 hover:bg-white/70 transition-all"></button>
         </div>
     </div>
 
@@ -134,5 +246,71 @@
         </div>
     </footer>
 
+    <!-- Script to handle the auto-playing Welcome Hero Slideshow -->
+    <script>
+        (function() {
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.welcome-slide');
+            const dots = document.querySelectorAll('.welcome-dot');
+            const totalSlides = slides.length;
+
+            if (totalSlides === 0) return;
+
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    if (i === index) {
+                        slide.classList.remove('opacity-0', 'z-0');
+                        slide.classList.add('opacity-100', 'z-10');
+                        dots[i].classList.replace('bg-white/40', 'bg-white');
+                    } else {
+                        slide.classList.remove('opacity-100', 'z-10');
+                        slide.classList.add('opacity-0', 'z-0');
+                        dots[i].classList.replace('bg-white', 'bg-white/40');
+                    }
+                });
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                showSlide(currentSlide);
+            }
+
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                showSlide(currentSlide);
+            }
+
+            // Automatically switch slides every 5.5 seconds
+            let slideInterval = setInterval(nextSlide, 5500);
+
+            function resetTimer() {
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, 5500);
+            }
+
+            // Navigate using arrows
+            document.getElementById('welcome-next-slide').addEventListener('click', () => {
+                nextSlide();
+                resetTimer();
+            });
+
+            document.getElementById('welcome-prev-slide').addEventListener('click', () => {
+                prevSlide();
+                resetTimer();
+            });
+
+            // Navigate using dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentSlide = index;
+                    showSlide(currentSlide);
+                    resetTimer();
+                });
+            });
+            
+            // Force the first slide to show immediately
+            showSlide(0);
+        })();
+    </script>
 </body>
 </html>

@@ -18,11 +18,12 @@
         </div>
     </x-slot>
 
-    <!-- NEW: Professional EDGE-TO-EDGE Hero Slideshow -->
+    <!-- Professional 5-Image EDGE-TO-EDGE Hero Slideshow -->
     <div class="relative w-full h-[50vh] md:h-[60vh] min-h-[400px] overflow-hidden shadow-xl group bg-gray-900">
-        <!-- Slide 1 -->
+        
+        <!-- Slide 1: Premium Car -->
         <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100 z-10">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" class="object-cover w-full h-full opacity-60" alt="Premium Car Care">
+            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2070&auto=format&fit=crop" class="object-cover w-full h-full opacity-60" alt="Premium Car Care">
             <div class="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/50 to-transparent flex items-center">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                     <div class="max-w-2xl">
@@ -37,9 +38,9 @@
             </div>
         </div>
 
-        <!-- Slide 2 -->
+        <!-- Slide 2: Mechanic Working -->
         <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 z-0">
-            <img src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?q=80&w=2070&auto=format&fit=crop" class="object-cover w-full h-full opacity-60" alt="Expert Mechanics">
+            <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=2070&auto=format&fit=crop" class="object-cover w-full h-full opacity-60" alt="Expert Mechanics">
             <div class="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/50 to-transparent flex items-center">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                     <div class="max-w-2xl">
@@ -54,6 +55,57 @@
             </div>
         </div>
 
+        <!-- Slide 3: Clean Detailing/Bodywork -->
+        <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 z-0">
+            <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?q=80&w=2070&auto=format&fit=crop" class="object-cover w-full h-full opacity-60" alt="Body and Paint">
+            <div class="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/50 to-transparent flex items-center">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                    <div class="max-w-2xl">
+                        <span class="text-blue-400 font-bold tracking-wider uppercase text-sm mb-2 block">Detailing & Polish</span>
+                        <h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-4 uppercase tracking-tight leading-tight text-white">Showroom<br>Shine</h2>
+                        <p class="text-lg text-gray-300 mb-8 max-w-lg">From minor scratch removals to full premium detailing, we restore your vehicle's aesthetic perfection.</p>
+                        <div class="flex space-x-4">
+                            <a href="{{ route('bookings.create') }}" class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-8 rounded-lg transition shadow-lg">View Services</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Wheel and Brakes -->
+        <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 z-0">
+            <img src="https://images.unsplash.com/photo-1580274455191-1c62238fa333?q=80&w=2070&auto=format&fit=crop" class="object-cover w-full h-full opacity-60" alt="Genuine Parts">
+            <div class="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/50 to-transparent flex items-center">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                    <div class="max-w-2xl">
+                        <span class="text-blue-400 font-bold tracking-wider uppercase text-sm mb-2 block">Quality Guaranteed</span>
+                        <h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-4 uppercase tracking-tight leading-tight text-white">Genuine Parts<br>Last Longer</h2>
+                        <p class="text-lg text-gray-300 mb-8 max-w-lg">We only use OEM and premium aftermarket components to ensure maximum safety and durability on the road.</p>
+                        <div class="flex space-x-4">
+                            <a href="{{ route('bookings.create') }}" class="bg-white text-gray-900 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg transition shadow-lg">Book Maintenance</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Professional Workshop -->
+        <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 z-0">
+            <img src="https://images.unsplash.com/photo-1599256621730-535171e28e50?q=80&w=2070&auto=format&fit=crop" class="object-cover w-full h-full opacity-60" alt="Transparent Service">
+            <div class="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/50 to-transparent flex items-center">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                    <div class="max-w-2xl">
+                        <span class="text-blue-400 font-bold tracking-wider uppercase text-sm mb-2 block">Live Updates</span>
+                        <h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-4 uppercase tracking-tight leading-tight text-white">Track Every<br>Repair</h2>
+                        <p class="text-lg text-gray-300 mb-8 max-w-lg">Stay updated with live status changes and read detailed mechanic findings directly from your dashboard.</p>
+                        <div class="flex space-x-4">
+                            <a href="{{ route('bookings.index') }}" class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-8 rounded-lg transition shadow-lg">Check Vehicle Status</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Slide Navigation Arrows -->
         <button id="prev-slide" class="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/30 text-white p-2 rounded-full backdrop-blur-sm transition opacity-0 group-hover:opacity-100">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
@@ -61,6 +113,15 @@
         <button id="next-slide" class="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/30 text-white p-2 rounded-full backdrop-blur-sm transition opacity-0 group-hover:opacity-100">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
         </button>
+
+        <!-- Slide Indicators (Dots) -->
+        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex space-x-2">
+            <button class="slide-dot w-2.5 h-2.5 rounded-full bg-white transition-all"></button>
+            <button class="slide-dot w-2.5 h-2.5 rounded-full bg-white/40 hover:bg-white/70 transition-all"></button>
+            <button class="slide-dot w-2.5 h-2.5 rounded-full bg-white/40 hover:bg-white/70 transition-all"></button>
+            <button class="slide-dot w-2.5 h-2.5 rounded-full bg-white/40 hover:bg-white/70 transition-all"></button>
+            <button class="slide-dot w-2.5 h-2.5 rounded-full bg-white/40 hover:bg-white/70 transition-all"></button>
+        </div>
     </div>
 
     <!-- Main Dashboard Content -->
@@ -253,11 +314,12 @@
         </div>
     </div>
 
-    <!-- Script to handle the auto-playing Hero Slideshow -->
+    <!-- Script to handle the auto-playing Hero Slideshow with Dot Navigation -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        (function() {
             let currentSlide = 0;
             const slides = document.querySelectorAll('.hero-slide');
+            const dots = document.querySelectorAll('.slide-dot');
             const totalSlides = slides.length;
 
             if (totalSlides === 0) return;
@@ -267,9 +329,11 @@
                     if (i === index) {
                         slide.classList.remove('opacity-0', 'z-0');
                         slide.classList.add('opacity-100', 'z-10');
+                        dots[i].classList.replace('bg-white/40', 'bg-white');
                     } else {
                         slide.classList.remove('opacity-100', 'z-10');
                         slide.classList.add('opacity-0', 'z-0');
+                        dots[i].classList.replace('bg-white', 'bg-white/40');
                     }
                 });
             }
@@ -287,19 +351,33 @@
             // Automatically switch slides every 5.5 seconds
             let slideInterval = setInterval(nextSlide, 5500);
 
-            // Navigate using buttons
-            document.getElementById('next-slide').addEventListener('click', () => {
-                nextSlide();
-                // Reset timer when manually clicked
+            function resetTimer() {
                 clearInterval(slideInterval);
                 slideInterval = setInterval(nextSlide, 5500);
+            }
+
+            // Navigate using arrows
+            document.getElementById('next-slide').addEventListener('click', () => {
+                nextSlide();
+                resetTimer();
             });
 
             document.getElementById('prev-slide').addEventListener('click', () => {
                 prevSlide();
-                clearInterval(slideInterval);
-                slideInterval = setInterval(nextSlide, 5500);
+                resetTimer();
             });
-        });
+
+            // Navigate using dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentSlide = index;
+                    showSlide(currentSlide);
+                    resetTimer();
+                });
+            });
+            
+            // Force the first slide to show immediately
+            showSlide(0);
+        })();
     </script>
 </x-app-layout>

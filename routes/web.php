@@ -6,6 +6,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\MechanicController;
+use App\Http\Controllers\CustomerController; // <-- Added Customer Controller
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -59,6 +60,11 @@ Route::middleware('auth')->group(function () {
         Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
         Route::post('/services', [ServiceController::class, 'store'])->name('services.store');
         Route::delete('/services/{id}', [ServiceController::class, 'destroy'])->name('services.destroy');
+
+        // Manage Customers (NEW ROUTES)
+        Route::get('/customers', [CustomerController::class, 'index'])->name('customers.index');
+        Route::get('/customers/{id}/edit', [CustomerController::class, 'edit'])->name('customers.edit');
+        Route::patch('/customers/{id}', [CustomerController::class, 'update'])->name('customers.update');
     });
 
     /**
