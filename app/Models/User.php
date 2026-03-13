@@ -45,15 +45,19 @@ class User extends Authenticatable
         ];
     }
 
-    // Feature 1: A User has many Vehicles
+    /**
+     * Relationship: A User can have many Vehicles
+     */
     public function vehicles()
     {
         return $this->hasMany(Vehicle::class);
     }
 
-    // Feature 3: A User has many Bookings (NEW)
+    /**
+     * Relationship: A User can have many Bookings
+     */
     public function bookings()
     {
-        return $this->hasMany(Booking::class, 'user_id');
+        return $this->hasMany(Booking::class);
     }
 }

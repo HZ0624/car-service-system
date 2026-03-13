@@ -4,45 +4,77 @@ namespace App\Http\Controllers;
 
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth; // <-- This fixes the "App\Models\Auth" error
 
 class VehicleController extends Controller
 {
-    /**
-     * Show the "Add Vehicle" form.
-     */
     public function create()
     {
-        return view('vehicles.create');
+        /** @var \App\Models\User $user */
+        $user = Auth::user();
+        
+        // Fetch vehicles so we can display the table on the "My Vehicles" page
+        $vehicles = $user->vehicles;
+
+        return view('vehicles.create', compact('vehicles'));
     }
 
-    /**
-     * Store the new vehicle in the database.
-     */
     public function store(Request $request)
     {
-        // 1. Validation (Satisfies "Strong validation mechanisms" rubric)
-        $validated = $request->validate([
-            'license_plate' => 'required|string|max:15|unique:vehicles',
-            'make' => 'required|string|max:50',
-            'model' => 'required|string|max:50',
-            'year' => 'required|integer|min:1990|max:' . (date('Y') + 1),
+        // Validation
+        $request->validate([
+            'license_plate' => 'required|string|max:20|unique:vehicles,license_plate',
+            'make'          => 'required|string|max:50',
+            'model'         => 'required|string|max:50',
+            'year'          => 'required|integer|min:1990|max:' . (date('Y') + 1),
+            'mileage'       => 'nullable|integer|min:0',
         ]);
 
-        // 2. Create Record linked to the User (Satisfies "Modular design")
-        // We use the relationship defined in the User model to save it automatically
-        $request->user()->vehicles()->create($validated);
+        // Save to Database
+        $vehicle = new Vehicle();
+        $vehicle->user_id = Auth::id(); 
+        $vehicle->license_plate = strtoupper($request->license_plate);
+        $vehicle->make = $request->make;
+        $vehicle->model = $request->model;
+        $vehicle->year = $request->year;
+        $vehicle->mileage = $request->mileage; 
+        
+        $vehicle->save();
 
-        // 3. Redirect to Dashboard with success message
-        return redirect()->route('dashboard')->with('status', 'Vehicle added successfully!');
+        // Redirect back to the vehicles page
+        return redirect()->route('vehicles.create')->with('status', 'Vehicle added successfully!');
     }
     
-    /**
-     * List user's vehicles (We will use this later).
-     */
     public function index()
     {
-        $vehicles = Auth::user()->vehicles;
-        return view('dashboard', compact('vehicles'));
+        /** @var \App\Models\User $user */
+        $user = Auth::user();
+
+        // ==========================================
+        // ROLE REDIRECTION LOGIC
+        // ==========================================
+        
+        // If user is an Admin (Role 2), send them to Admin Panel
+        if ($user->role == 2) {
+            return redirect()->route('admin.bookings');
+        }
+
+        // If user is a Mechanic (Role 3), send them to Mechanic Dashboard
+        if ($user->role == 3) {
+            return redirect()->route('mechanic.dashboard');
+        }
+
+        // ==========================================
+        // ROLE 1 (CUSTOMER) DASHBOARD
+        // ==========================================
+        $vehicles = $user->vehicles;
+
+        $upcomingBookings = $user->bookings()
+                                 ->with(['service', 'vehicle'])
+                                 ->where('booking_date', '>=', now())
+                                 ->orderBy('booking_date', 'asc')
+                                 ->get();
+
+        return view('dashboard', compact('vehicles', 'upcomingBookings'));
     }
 }
